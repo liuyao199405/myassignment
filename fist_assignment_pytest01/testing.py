@@ -20,7 +20,7 @@ def get_calc_date(name):
     with open('./calc_data.yml',encoding='utf-8') as f:
         return yaml.safe_load(f)[name]
 
-# 获取数据的方法
+# (验证是否正确获取到数据)
 def test_getdatas():
     print(get_calc_date('add')['fail'])
 

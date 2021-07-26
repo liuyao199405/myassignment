@@ -1,0 +1,2 @@
+INFO     root:conftest.py:14 开始计算
+INFO     root:test_calc.py:37 计算1+2,预期结果为3

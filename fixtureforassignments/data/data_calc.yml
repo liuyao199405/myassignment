@@ -1,0 +1,118 @@
+# calculator 类测试数据
+add: 
+  success: 
+    argnames: a,b,expect_result
+    argvalues: 
+      - [1,2,3]
+      - [-1,-2,-3]
+      - [1,-2,-1]
+      - [-1,2,1]
+      - [0.1,0.2,0.3]
+      - [0,0,0]
+      - [-0.1,-0.2,-0.3]
+      - [-0.1,2,1.9]
+      - [-0.1,-2,-2.1]
+      - [float('inf'),float('inf'),float('inf')]
+    ids: 
+      - a,b正整数
+      - a,b负整数
+      - a正b负
+      - a负b正
+      - ab小数
+      - ab均为0
+      - a,b为负小数
+      - a负小数，b为正整数
+      - a负小数，b为负整数
+      - ab无穷大
+  fail: 
+    argnames: a,b,errorType
+    argvalues: 
+      - ['a',1,TypError]
+    ids: 
+      - 数字和非数字相加
+
+sub: 
+  success: 
+    argnames: a,b,expect_result
+    argvalues: 
+      - [2,1,1]
+      - [1,2,-1]
+      - [1,1,0]
+      - [2,-1,3]
+      - [-1,1,-2]
+      - [1,1.1,-0.1] 
+      - [1,-1.1,2.1]
+      - [-1,-1,0]
+      - [0,1,-1]
+      - [1,0,1]
+      - [-1.1,-1,-0.1]
+      - [-1.1,1,-2.1]
+    ids: 
+      - a>b,ab正整数
+      - a<b,ab正整数
+      - a=b
+      - b为负整数
+      - a为负整数
+      - b为正小数
+      - b为负小数
+      - ab为负整数
+      - a为0
+      - b为0
+      - a为负小数，b为负数
+      - a为负小数，b为正数
+
+  fail: 
+    argnames: a,b,errorType
+    argvalues: 
+      - ['a',1,TypeError]
+    ids: 
+      - 非数字和数字相减
+
+mul: 
+  success: 
+    argnames: a,b,expect_result
+    argvalues: 
+      - [1,1,1]
+      - [-1,-1,1]
+      - [-1,2,-2]
+      - [1,0,0]
+      - [0,1,0]
+      - [1.1,1,1.1]
+      - [-1.1,1,-1.1]
+
+    ids: 
+      - a,b正整数
+      - a,b负整数
+      - a为负数,b为正数
+      - b为0
+      - a为0
+      - a为小数
+      - a为负小数
+  
+  fail: 
+    argnames: a,b,errorType
+    argvalues: 
+      - ['a',1,TypeError]
+    ids: 
+      - 数字和非数字相乘
+
+div: 
+  success: 
+    argnames: a,b,expect_result
+    argvalues: 
+      - [1,1,1]
+      - [1,-1,-1]
+      - [-1,1,-1]
+      - [0,-1,0]
+      - [-0.1,-0.1,1]
+      - [1,0.1,10]
+  fail: 
+    argnames: a,b,errorType
+    argvalues: 
+      - ['1',1,TypeError]
+      - [1,0,ZeroDivisionError]
+    ids: 
+      - 数字和非数字相除
+      - 0作为除数
+      
+    

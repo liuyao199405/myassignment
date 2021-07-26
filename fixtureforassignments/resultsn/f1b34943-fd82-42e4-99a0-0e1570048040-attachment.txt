@@ -1,0 +1,2 @@
+INFO     root:test_calc.py:37 计算inf+inf,预期结果为inf
+INFO     root:conftest.py:17 结束运算
